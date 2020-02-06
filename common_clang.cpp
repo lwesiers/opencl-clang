@@ -245,6 +245,7 @@ Compile(const char *pszProgramSource, const char **pInputHeaders,
     compiler->createFileManager(OverlayFS);
     compiler->createSourceManager(compiler->getFileManager());
 
+    llvm::cl::ResetAllOptionOccurrences();
     // Create compiler invocation from user args before trickering with it
     clang::CompilerInvocation::CreateFromArgs(compiler->getInvocation(),
                                               optionsParser.args(), *Diags);
